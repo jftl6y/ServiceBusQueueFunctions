@@ -21,9 +21,12 @@ namespace ServiceBusQueueFunc
             ServiceBusReceivedMessage message,
             ServiceBusMessageActions messageActions)
         {
+            // Log the message
             _logger.LogInformation("Message ID: {id}", message.MessageId);
             _logger.LogInformation("Message Body: {body}", message.Body);
             _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
+
+            // do something with the message
 
             // Complete the message
             await messageActions.CompleteMessageAsync(message);
